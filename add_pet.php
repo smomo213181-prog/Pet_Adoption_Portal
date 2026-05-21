@@ -13,27 +13,155 @@ $success = isset($_GET['success']) ? $_GET['success'] : '';
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Add Pet | The Editorial Sanctuary</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<title>Add Pet | Paw's Home</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,300;1,400;1,500;1,600;1,700;1,800&amp;family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f0f2f2",
+                    "primary-fixed": "#c0eef3",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-container": "#3ba9b1",
+                    "surface-variant": "#dfe4e4",
+                    "surface-bright": "#f8fafa",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#f5feff",
+                    "on-tertiary-fixed-variant": "#643f00",
+                    "on-surface": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary": "#a66900",
+                    "tertiary-fixed": "#ffddb6",
+                    "inverse-primary": "#70d6df",
+                    "primary-fixed-dim": "#70d6df",
+                    "on-background": "#191c1d",
+                    "surface-dim": "#d8dada",
+                    "secondary-fixed-dim": "#ffb783",
+                    "outline-variant": "#bdc9ca",
+                    "on-surface-variant": "#3d494a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8fafa",
+                    "tertiary": "#815200",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e6e8e9",
+                    "surface-tint": "#006970",
+                    "primary": "#00676e",
+                    "on-primary-fixed-variant": "#004f54",
+                    "inverse-on-surface": "#eff1f1",
+                    "secondary-container": "#ffb87a",
+                    "background": "#fcfdfd",
+                    "outline": "#6d797a",
+                    "on-tertiary-fixed": "#2a1800",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#002022",
+                    "tertiary-fixed-dim": "#ffb95a",
+                    "surface-container-low": "#f2f4f4",
+                    "surface-container-highest": "#e1e3e3",
+                    "inverse-surface": "#2e3131",
+                    "on-secondary-fixed": "#301400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
 <style>
-    body { font-family: 'Be Vietnam Pro', sans-serif; background: #f8fafc; color: #0f172a; }
-    h1,h2,h3,.font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
-</style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #fcfdfd;
+            color: #191c1d;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease-out;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            border-left: 4px solid #00676e;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        .toast.removing {
+            animation: slideOut 0.3s ease-in;
+        }
+        .toast-icon {
+            font-size: 20px;
+            color: #00676e;
+        }
+        .toast-message {
+            color: #191c1d;
+            font-weight: 500;
+        }
+        /* Improve pet image centering and subtle enhancement */
+        .pet-img {
+            object-position: center center;
+            image-rendering: auto;
+            -webkit-filter: contrast(1.03) saturate(1.02);
+            filter: contrast(1.03) saturate(1.02);
+            transition: transform 0.5s ease, filter 0.3s ease;
+        }
+        /* Force top-focused images when needed (e.g., Luna) */
+        .pet-img.focus-top {
+            object-position: top center !important;
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-slate-50">
-<nav class="bg-white shadow-sm py-4 px-6">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <a class="text-xl font-bold text-teal-700" href="index.php">The Editorial Sanctuary</a>
-        <div class="flex items-center gap-4">
-            <a class="text-slate-600 hover:text-teal-700" href="index.php">Home</a>
-            <a class="text-slate-600 hover:text-teal-700" href="favorites.php">Favorites</a>
-            <a class="text-slate-600 hover:text-teal-700" href="logout.php">Logout</a>
-        </div>
-    </div>
-</nav>
-<main class="max-w-3xl mx-auto mt-12 bg-white p-8 rounded-3xl shadow-sm">
+<body class="bg-background text-on-surface">
+<?php require_once 'header.php'; ?>
+<main class="max-w-3xl mx-auto pt-24 bg-white p-8 rounded-3xl shadow-sm">
     <div class="mb-8">
         <h1 class="text-4xl font-bold mb-3">Add a New Pet</h1>
         <p class="text-slate-500">Add a companion profile and it will appear on the home page.</p>

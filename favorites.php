@@ -26,7 +26,7 @@ $favorites = $stmt->fetchAll();
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Favorites - The Editorial Sanctuary</title>
+<title>Favorites - Paw's Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Be+Vietnam+Pro:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -101,38 +101,58 @@ $favorites = $stmt->fetchAll();
       }
       body { font-family: 'Be Vietnam Pro', sans-serif; }
       h1, h2, h3, .nav-link { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .toast {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: white;
+          padding: 16px 24px;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          z-index: 9999;
+          animation: slideIn 0.3s ease-out;
+          font-family: 'Be Vietnam Pro', sans-serif;
+          border-left: 4px solid #00676e;
+      }
+      @keyframes slideIn {
+          from {
+              transform: translateX(400px);
+              opacity: 0;
+          }
+          to {
+              transform: translateX(0);
+              opacity: 1;
+          }
+      }
+      @keyframes slideOut {
+          from {
+              transform: translateX(0);
+              opacity: 1;
+          }
+          to {
+              transform: translateX(400px);
+              opacity: 0;
+          }
+      }
+      .toast.removing {
+          animation: slideOut 0.3s ease-in;
+      }
+      .toast-icon {
+          font-size: 20px;
+          color: #00676e;
+      }
+      .toast-message {
+          color: #191c1d;
+          font-weight: 500;
+      }
     </style>
 </head>
 <body class="bg-background text-on-surface">
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl transition-all duration-300 shadow-[0px_12px_32px_rgba(25,28,29,0.06)]">
-<nav class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
-<div class="flex items-center gap-8">
-<span class="text-2xl font-bold tracking-tight text-teal-800 dark:text-teal-200">The Editorial Sanctuary</span>
-<div class="hidden md:flex gap-6">
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-teal-500 transition-colors duration-300" href="index.php">Home</a>
-<a class="text-teal-700 dark:text-teal-400 border-b-2 border-teal-600 font-semibold transition-colors duration-300" href="favorites.php">Favorites</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-teal-500 transition-colors duration-300" href="#">My Pets</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-teal-500 transition-colors duration-300" href="add_pet.php">Add Pet</a>
-</div>
-</div>
-<div class="flex items-center gap-5">
-<div class="hidden lg:flex items-center bg-surface-container-low rounded-full px-4 py-2">
-<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search sanctuary..." type="text"/>
-</div>
-<div class="flex gap-4">
-<button class="text-slate-600 hover:text-teal-500 transition-colors scale-95 active:scale-90">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="text-slate-600 hover:text-teal-500 transition-colors scale-95 active:scale-90">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
-</button>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-semibold scale-95 active:scale-90 transition-transform">Profile</button>
-</div>
-</nav>
-</header>
+<?php require_once 'header.php'; ?>
+<?php require_once 'header.php'; ?>
 <main class="pt-24 pb-20 px-8 max-w-7xl mx-auto">
 <!-- Hero Heading -->
 <section class="mb-12">
@@ -212,6 +232,7 @@ $favorites = $stmt->fetchAll();
 </div>
 <div class="md:text-right">
 <p class="text-sm font-body text-slate-500 dark:text-slate-500">© 2024 The Editorial Sanctuary.</p>
+<p class="text-sm font-body text-slate-500 dark:text-slate-500">© 2024 Paw's Home.</p>
 </div>
 </div>
 </footer>
@@ -235,6 +256,29 @@ $favorites = $stmt->fetchAll();
 </a>
 </nav>
 <script>
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    
+    const icon = type === 'success' ? 'favorite' : 'close';
+    const iconColor = type === 'success' ? '#ba1a1a' : '#666';
+    
+    toast.innerHTML = `
+        <span class="material-symbols-outlined toast-icon" style="color: ${iconColor}; font-variation-settings: 'FILL' 1;">${icon}</span>
+        <span class="toast-message">${message}</span>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.add('removing');
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Handle remove favorite buttons
     document.querySelectorAll('.remove-favorite').forEach(btn => {
@@ -258,15 +302,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (result.success) {
                     // Remove the card from the DOM
                     this.closest('.group').remove();
+                    showToast('Removed from favorites');
                     // If no favorites left, reload to show empty state
                     if (document.querySelectorAll('.group').length === 0) {
-                        location.reload();
+                        setTimeout(() => location.reload(), 500);
                     }
                 } else {
-                    alert('Error: ' + result.error);
+                    showToast('Error: ' + result.error, 'error');
                 }
             } catch (error) {
-                alert('Network error: ' + error.message);
+                showToast('Network error: ' + error.message, 'error');
             }
         });
     });

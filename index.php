@@ -19,7 +19,7 @@ $user_name = $_SESSION['user_name'];
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Editorial Sanctuary | Pet Adoption Portal</title>
+<title>Paw's Home | Pet Adoption Portal</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -104,46 +104,69 @@ $user_name = $_SESSION['user_name'];
         h1, h2, h3, .font-headline {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease-out;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            border-left: 4px solid #00676e;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+        .toast.removing {
+            animation: slideOut 0.3s ease-in;
+        }
+        .toast-icon {
+            font-size: 20px;
+            color: #00676e;
+        }
+        .toast-message {
+            color: #191c1d;
+            font-weight: 500;
+        }
+        /* Improve pet image centering and subtle enhancement */
+        .pet-img {
+            object-position: center center;
+            image-rendering: auto;
+            -webkit-filter: contrast(1.03) saturate(1.02);
+            filter: contrast(1.03) saturate(1.02);
+            transition: transform 0.5s ease, filter 0.3s ease;
+        }
+        /* Force top-focused images when needed (e.g., Luna) */
+        .pet-img.focus-top {
+            object-position: top center !important;
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface">
-<!-- TopNavBar Shell -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 max-w-full mx-auto" style="box-shadow: 0px 12px 32px rgba(25, 28, 29, 0.04);">
-<div class="flex items-center gap-12">
-<span class="text-2xl font-bold tracking-tight text-primary dark:text-primary-fixed">The Editorial Sanctuary</span>
-<div class="hidden md:flex items-center gap-8 font-label text-sm tracking-tight">
-<a class="text-primary dark:text-primary-fixed border-b-2 border-primary font-semibold transition-colors duration-300" href="index.php">Home</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors duration-300" href="favorites.php">Favorites</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors duration-300" href="#">My Pets</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors duration-300" href="add_pet.php">Add Pet</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors duration-300" href="#">Requests</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-primary transition-colors duration-300" href="#">Profile</a>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<!-- Mode Toggle -->
-<div class="flex items-center bg-surface-container rounded-full p-1 shadow-sm">
-<button class="px-4 py-1.5 rounded-full text-xs font-bold bg-primary text-on-primary transition-transform scale-95 active:scale-90">Adopt Mode</button>
-<button class="px-4 py-1.5 rounded-full text-xs font-bold text-on-surface-variant hover:text-primary transition-colors">Rehome Mode</button>
-</div>
-<div class="flex items-center gap-4 text-primary dark:text-primary-fixed"><?php if ($user_logged_in): ?>
-<span class="text-sm font-medium">Welcome, <?php echo htmlspecialchars($user_name); ?>!</span>
-<button class="hover:text-primary-container transition-colors duration-300" onclick="window.location.href='logout.php'">
-<span class="material-symbols-outlined" data-icon="logout">logout</span>
-</button>
-<?php else: ?>
-<button class="hover:text-primary-container transition-colors duration-300" onclick="window.location.href='login.php'">
-<span class="material-symbols-outlined" data-icon="login">login</span>
-</button>
-<?php endif; ?><button class="hover:text-primary-container transition-colors duration-300">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-</button>
-<button class="hover:text-primary-container transition-colors duration-300">
-<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
-</button>
-</div>
-</div>
-</nav>
+<?php require_once 'header.php'; ?>
 <main class="pt-24">
 <!-- Hero Section -->
 <section class="relative px-8 py-20 overflow-hidden">
@@ -180,12 +203,13 @@ $user_name = $_SESSION['user_name'];
 </div>
 </div>
 </section>
+
 <!-- Quick Action Cards (Bento style) -->
 <section class="px-8 py-16 bg-surface-container-low">
 <div class="max-w-7xl mx-auto">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Browse Pets -->
-<div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group cursor-pointer transition-transform hover:-translate-y-1">
+<a href="browse_pets.php" class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group cursor-pointer transition-transform hover:-translate-y-1">
 <div class="mb-8">
 <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
 <span class="material-symbols-outlined" data-icon="search">search</span>
@@ -194,9 +218,9 @@ $user_name = $_SESSION['user_name'];
 <p class="text-on-surface-variant font-body">Explore hundreds of animals looking for a second chance.</p>
 </div>
 <span class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Start exploring <span class="material-symbols-outlined">arrow_forward</span></span>
-</div>
+</a>
 <!-- View Favorites -->
-<div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group cursor-pointer transition-transform hover:-translate-y-1">
+<a href="favorites.php" class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group cursor-pointer transition-transform hover:-translate-y-1">
 <div class="mb-8">
 <div class="w-12 h-12 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary mb-6">
 <span class="material-symbols-outlined" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
@@ -205,7 +229,7 @@ $user_name = $_SESSION['user_name'];
 <p class="text-on-surface-variant font-body">Access your shortlisted companions and compare profiles.</p>
 </div>
 <span class="text-secondary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">My wishlist <span class="material-symbols-outlined">arrow_forward</span></span>
-</div>
+</a>
 <!-- My Requests -->
 <div class="bg-surface-container-lowest p-8 rounded-lg flex flex-col justify-between group cursor-pointer transition-transform hover:-translate-y-1">
 <div class="mb-8">
@@ -220,6 +244,7 @@ $user_name = $_SESSION['user_name'];
 </div>
 </div>
 </section>
+
 <!-- Main Content: Filters & Pet Grid -->
 <section class="px-8 py-24 bg-background">
 <div class="max-w-7xl mx-auto">
@@ -229,21 +254,30 @@ $user_name = $_SESSION['user_name'];
 <p class="text-on-surface-variant">Find a matching personality for your lifestyle</p>
 </div>
 <!-- Filter Bar -->
-<div class="w-full md:w-auto flex flex-wrap gap-3 bg-surface-container p-2 rounded-lg">
-<select class="bg-transparent border-none text-sm font-bold text-on-surface focus:ring-0 cursor-pointer">
-<option>Pet Type</option>
-<option>Dog</option>
-<option>Cat</option>
-</select>
-<select class="bg-transparent border-none text-sm font-bold text-on-surface focus:ring-0 cursor-pointer">
-<option>Breed</option>
-</select>
-<select class="bg-transparent border-none text-sm font-bold text-on-surface focus:ring-0 cursor-pointer">
-<option>Age</option>
-<option>Puppy</option>
-<option>Adult</option>
-</select>
-<button class="bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-bold ml-2">Apply Filters</button>
+<?php
+    // gather unique breeds for the breed select
+    $breeds = array_unique(array_map(function($p){ return $p['breed'] ?: 'Mixed Breed'; }, $pets));
+    sort($breeds);
+?>
+<div class="w-full md:w-auto flex flex-wrap gap-3 bg-surface-container p-2 rounded-lg" id="filter-bar">
+    <select id="filter-type" class="bg-transparent border-none text-sm font-bold text-on-surface focus:ring-0 cursor-pointer">
+        <option value="">Pet Type</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+    </select>
+    <select id="filter-breed" class="bg-transparent border-none text-sm font-bold text-on-surface focus:ring-0 cursor-pointer">
+        <option value="">Breed</option>
+        <?php foreach ($breeds as $b): ?>
+            <option value="<?php echo htmlspecialchars($b); ?>"><?php echo htmlspecialchars($b); ?></option>
+        <?php endforeach; ?>
+    </select>
+    <select id="filter-age" class="bg-transparent border-none text-sm font-bold text-on-surface focus:ring-0 cursor-pointer">
+        <option value="">Age</option>
+        <option value="puppy">Puppy</option>
+        <option value="adult">Adult</option>
+        <option value="senior">Senior</option>
+    </select>
+    <button id="apply-filters" class="bg-primary text-on-primary px-4 py-2 rounded-full text-sm font-bold ml-2">Apply Filters</button>
 </div>
 </div>
 <!-- Pet Grid -->
@@ -254,10 +288,14 @@ $user_name = $_SESSION['user_name'];
         <p class="text-sm">Please add a pet or check back later.</p>
     </div>
 <?php else: ?>
-    <?php foreach ($pets as $pet): ?>
-<div class="group">
-<div class="relative aspect-[4/5] rounded-lg overflow-hidden mb-4 bg-surface-container-high">
-<img alt="<?php echo htmlspecialchars($pet['name']); ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="<?php echo htmlspecialchars($pet['image']); ?>"/>
+    <?php foreach (array_slice($pets, 0, 4) as $pet): ?>
+<?php
+    $focus = ($pet['name'] === 'Luna') ? '50% 12%' : '';
+    $imgSrc = (!empty($pet['image']) && is_file(__DIR__ . '/' . $pet['image'])) ? $pet['image'] : 'images/home-hero.jpg';
+?>
+<div class="group" data-type="<?php echo htmlspecialchars($pet['type']); ?>" data-breed="<?php echo htmlspecialchars($pet['breed'] ? $pet['breed'] : 'Mixed Breed'); ?>" data-age="<?php echo htmlspecialchars($pet['age_category']); ?>" <?php if ($focus) echo 'data-focus="'.htmlspecialchars($focus).'"'; ?>>
+<div class="relative aspect-[5/4] rounded-lg overflow-hidden mb-4 bg-surface-container-high">
+<img alt="<?php echo htmlspecialchars($pet['name']); ?>" class="pet-img w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110" src="<?php echo htmlspecialchars($imgSrc); ?>"/>
 <button class="favorite-btn absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur shadow-sm flex items-center justify-center <?php echo $user_logged_in ? 'text-outline hover:text-error' : 'text-outline/50 cursor-not-allowed'; ?>" data-pet-id="<?php echo $pet['id']; ?>" <?php echo !$user_logged_in ? 'disabled' : ''; ?>>
 <span class="material-symbols-outlined" data-icon="favorite">favorite</span>
 </button>
@@ -272,7 +310,7 @@ $user_name = $_SESSION['user_name'];
 <span class="material-symbols-outlined text-[16px]">location_on</span>
 <span><?php echo htmlspecialchars($pet['location']); ?></span>
 </div>
-<button class="w-full mt-4 py-3 rounded-full border border-outline-variant/20 font-bold text-primary hover:bg-primary hover:text-on-primary transition-all">View Details</button>
+<a href="pet_detail.php?id=<?php echo $pet['id']; ?>" class="w-full mt-4 inline-block text-center py-3 rounded-full border border-outline-variant/20 font-bold text-primary hover:bg-primary hover:text-on-primary transition-all">View Details</a>
 </div>
 </div>
 <?php endforeach; ?>
@@ -308,7 +346,7 @@ $user_name = $_SESSION['user_name'];
 <footer class="w-full py-12 px-8 bg-slate-50 dark:bg-slate-950">
 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-t border-slate-100 dark:border-slate-800 pt-12">
 <div>
-<span class="text-xl font-bold text-primary dark:text-primary-fixed block mb-2">The Editorial Sanctuary</span>
+<span class="text-xl font-bold text-primary dark:text-primary-fixed block mb-2">Paw's Home</span>
 <p class="text-slate-500 dark:text-slate-500 text-sm font-body max-w-xs">Connecting loving homes with pets who have a story to tell.</p>
 </div>
 <div class="flex flex-wrap gap-8 justify-center font-label text-sm">
@@ -318,15 +356,85 @@ $user_name = $_SESSION['user_name'];
 <a class="text-slate-500 dark:text-slate-500 hover:text-primary underline underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
 </div>
 <div class="text-right md:text-right">
-<p class="text-slate-500 dark:text-slate-500 text-xs font-body">© 2024 The Editorial Sanctuary. Every pet deserves a story.</p>
+<p class="text-slate-500 dark:text-slate-500 text-xs font-body">© 2024 Paw's Home. Every pet deserves a story.</p>
 </div>
 </div>
 </footer>
 <script>
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    
+    const icon = type === 'success' ? 'favorite' : 'close';
+    const iconColor = type === 'success' ? '#ba1a1a' : '#666';
+    
+    toast.innerHTML = `
+        <span class="material-symbols-outlined toast-icon" style="color: ${iconColor}; font-variation-settings: 'FILL' 1;">${icon}</span>
+        <span class="toast-message">${message}</span>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.add('removing');
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Client-side filtering: show/hide pet cards based on selected filters
+    const petCards = Array.from(document.querySelectorAll('.grid > .group'));
+    const filterType = document.getElementById('filter-type');
+    const filterBreed = document.getElementById('filter-breed');
+    const filterAge = document.getElementById('filter-age');
+    const applyBtn = document.getElementById('apply-filters');
+
+    function applyFilters() {
+        const typeVal = filterType.value;
+        const breedVal = filterBreed.value;
+        const ageVal = filterAge.value;
+
+        petCards.forEach(card => {
+            const matchType = !typeVal || card.getAttribute('data-type') === typeVal;
+            const matchBreed = !breedVal || card.getAttribute('data-breed') === breedVal;
+            const matchAge = !ageVal || card.getAttribute('data-age') === ageVal;
+            if (matchType && matchBreed && matchAge) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    if (applyBtn) {
+        applyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            applyFilters();
+        });
+    }
+
+    // Apply per-image focal positions for pets that have `data-focus` (e.g., Luna)
+    document.querySelectorAll('.group[data-focus]').forEach(group => {
+        const focus = group.getAttribute('data-focus');
+        const img = group.querySelector('img.pet-img');
+        if (!img || !focus) return;
+
+        const applyFocus = () => {
+            img.style.objectPosition = focus;
+            img.classList.add('focus-top');
+        };
+
+        if (img.complete) applyFocus();
+        else img.addEventListener('load', applyFocus);
+    });
+
     // Handle favorite buttons
     document.querySelectorAll('.favorite-btn').forEach(btn => {
-        btn.addEventListener('click', async function() {
+        btn.addEventListener('click', async function(e) {
+            e.preventDefault();
             const petId = this.getAttribute('data-pet-id');
             const isFavorited = this.classList.contains('text-error');
 
@@ -348,15 +456,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (result.action === 'added') {
                         this.classList.remove('text-outline');
                         this.classList.add('text-error');
+                        showToast('Added to favorites ❤️');
                     } else {
                         this.classList.remove('text-error');
                         this.classList.add('text-outline');
+                        showToast('Removed from favorites');
                     }
                 } else {
-                    alert('Error: ' + result.error);
+                    showToast('Error: ' + result.error, 'error');
                 }
             } catch (error) {
-                alert('Network error: ' + error.message);
+                showToast('Network error: ' + error.message, 'error');
             }
         });
     });

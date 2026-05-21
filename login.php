@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login & Signup | The Editorial Sanctuary</title>
+<title>Login & Signup | Paw's Home</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="absolute inset-0 bg-gradient-to-br from-primary/60 via-transparent to-tertiary/20"></div>
 </div>
 <div class="relative z-10">
-<span class="text-2xl font-bold tracking-tight text-white font-headline">The Editorial Sanctuary</span>
+<span class="text-2xl font-bold tracking-tight text-white font-headline">Paw's Home</span>
 </div>
 <div class="relative z-10 max-w-lg">
 <h1 class="text-5xl font-extrabold tracking-tight text-white font-headline mb-6 leading-tight">
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <section class="w-full lg:w-1/2 bg-background flex items-center justify-center p-8 md:p-12">
 <div class="w-full max-w-md space-y-10">
 <div class="lg:hidden mb-8">
-<span class="text-xl font-bold tracking-tight text-primary font-headline">The Editorial Sanctuary</span>
+<span class="text-xl font-bold tracking-tight text-primary font-headline">Paw's Home</span>
 </div>
 <div id="auth-header">
 <h2 class="text-3xl font-bold tracking-tight text-on-surface font-headline">Welcome back</h2>
@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <footer class="pt-8 text-center border-t border-outline-variant/20">
 <p class="text-xs text-on-surface-variant leading-relaxed">
-                        By continuing, you agree to The Editorial Sanctuary's <br/>
+                        By continuing, you agree to Paw's Home's <br/>
 <a class="text-on-surface font-medium hover:underline" href="#">Terms of Service</a> and <a class="text-on-surface font-medium hover:underline" href="#">Privacy Policy</a>.
                     </p>
 </footer>
