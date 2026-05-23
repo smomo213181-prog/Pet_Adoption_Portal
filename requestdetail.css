@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f7f9f8;
+  color: #15191c;
+}
+
+header {
+  height: 78px;
+  background: #fff;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8eeee;
+}
+
+header h2 {
+  color: #075f5c;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+nav {
+  display: flex;
+  gap: 34px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #536072;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+nav a.active {
+  color: #007b7c;
+  font-weight: 700;
+  border-bottom: 3px solid #007b7c;
+  padding-bottom: 8px;
+}
+
+.logout {
+  width: 220px;
+  height: 42px;
+  border: none;
+  border-radius: 25px;
+  background: #006f73;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+main {
+  padding: 48px 28px 90px;
+}
+
+.title h1 {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.title p {
+  font-size: 18px;
+  color: #333;
+}
+
+.title b {
+  color: #007b7c;
+}
+
+.layout {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 38px;
+}
+
+.pet-card {
+  background: white;
+  border-radius: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  height: 395px;
+}
+
+.pet-img {
+  position: relative;
+}
+
+.pet-img span {
+  position: absolute;
+  top: 22px;
+  left: 36px;
+  background: #007b7c;
+  color: white;
+  padding: 7px 16px;
+  border-radius: 18px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.pet-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pet-info {
+  padding: 52px 40px;
+}
+
+.pet-info h2 {
+  font-size: 34px;
+}
+
+.pet-info > p {
+  color: #3f484b;
+  margin-bottom: 30px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.info-grid small {
+  display: block;
+  color: #777;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.info-grid strong {
+  font-size: 15px;
+}
+
+.quote {
+  margin-top: 34px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.message-card {
+  background: #f0f2f1;
+  border-radius: 34px;
+  padding: 34px;
+  border-left: 4px solid #007b7c;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-row small {
+  color: #777;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.top-row span {
+  background: #ffe0cf;
+  color: #3d1b0d;
+  padding: 8px 20px;
+  border-radius: 18px;
+  font-weight: 700;
+}
+
+.message-box {
+  background: white;
+  margin-top: 28px;
+  border-radius: 28px;
+  padding: 24px;
+}
+
+.message-box p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.notice {
+  margin-top: 26px;
+  background: #dceff1;
+  color: #005f62;
+  padding: 18px 22px;
+  border-radius: 26px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.progress-card {
+  background: white;
+  border-radius: 34px;
+  padding: 34px;
+}
+
+.progress-card h2 {
+  font-size: 22px;
+  margin-bottom: 32px;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding-bottom: 36px;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 28px;
+  width: 2px;
+  height: 54px;
+  background: #007b7c;
+}
+
+.step:last-child::before {
+  display: none;
+}
+
+.step span {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #dce2e2;
+  color: #7d8588;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.step.done span {
+  background: #007b7c;
+  color: white;
+}
+
+.step.current span {
+  background: white;
+  border: 4px solid #007b7c;
+}
+
+.step h4 {
+  font-size: 16px;
+}
+
+.step.current h4 {
+  color: #007b7c;
+}
+
+.step p {
+  color: #444;
+  font-size: 14px;
+}
+
+footer {
+  background: white;
+  border-top: 1px solid #edf0ef;
+  padding: 48px 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer h3 {
+  color: #075f5c;
+}
+
+footer p,
+footer a {
+  color: #5f6b72;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 34px;
+}
+
+@media (max-width: 950px) {
+  nav {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pet-card {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .pet-img img {
+    height: 320px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

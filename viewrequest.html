@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paw's Home - Requests</title>
+    <link rel="stylesheet" href="viewrequest.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Paw’s Home</h2>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a class="active" href="#">My Pets</a>
+        <a href="#">Add Pet</a>
+        <a href="#">Requests</a>
+        <a href="#">Profile</a>
+      </nav>
+
+      <div class="top-actions">
+        <div class="search">
+          🔍
+          <input
+            type="text"
+            placeholder="Search requests..."
+            id="searchInput"
+          />
+        </div>
+        <span>🔔</span>
+        <span>⚙</span>
+        <div class="avatar">👤</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="title-area">
+        <div class="pet-thumb">
+          <img
+            src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?w=300"
+          />
+          <span>🐾</span>
+        </div>
+
+        <div>
+          <h1>Requests for Oliver</h1>
+          <p>Review adoption requests for this pet</p>
+        </div>
+      </section>
+
+      <div class="layout">
+        <section class="requests-area">
+          <div class="tabs">
+            <button class="active" onclick="filterRequests('all')">All</button>
+            <button onclick="filterRequests('pending')">Pending</button>
+            <button onclick="filterRequests('approved')">Approved</button>
+          </div>
+
+          <button class="sort-btn">☰ Sort by Date</button>
+
+          <div class="request-grid">
+            <div
+              class="request-card"
+              data-status="pending"
+              data-name="Sarah Jenkins"
+            >
+              <span class="status pending">PENDING</span>
+              <div class="user-row">
+                <div class="circle">SJ</div>
+                <div>
+                  <h3>Sarah Jenkins</h3>
+                  <p>▣ Oct 28, 2023</p>
+                </div>
+              </div>
+              <p>✉ sarah.j@example.com</p>
+              <p>⌕ (555) 123-4567</p>
+
+              <div class="buttons">
+                <button class="approve">Approve ⊙</button>
+                <button class="reject">Reject ⊗</button>
+              </div>
+            </div>
+
+            <div
+              class="request-card"
+              data-status="approved"
+              data-name="Michael Chen"
+            >
+              <span class="status approved">APPROVED</span>
+              <div class="user-row">
+                <div class="circle orange">MÃ</div>
+                <div>
+                  <h3>Michael Chen</h3>
+                  <p>▣ Oct 26, 2023</p>
+                </div>
+              </div>
+              <p>✉ m.chen@domain.org</p>
+              <p>⌕ (555) 987-6543</p>
+
+              <div class="updated">
+                <span>Updated Oct 27</span>
+                <button>View Profile</button>
+              </div>
+            </div>
+
+            <div
+              class="request-card"
+              data-status="rejected"
+              data-name="Amanda Brooks"
+            >
+              <span class="status rejected">REJECTED</span>
+              <div class="user-row">
+                <div class="circle gray">Aå</div>
+                <div>
+                  <h3>Amanda Brooks</h3>
+                  <p>▣ Oct 25, 2023</p>
+                </div>
+              </div>
+              <p>✉ abrooks@email.net</p>
+              <p>⌕ (555) 444-3322</p>
+
+              <button class="reason">View Reason⌄</button>
+            </div>
+          </div>
+        </section>
+
+        <aside>
+          <div class="stage-card">
+            <h2>⌘ Current Stage</h2>
+
+            <div class="timeline">
+              <div class="step done">
+                <span>✓</span>
+                <div>
+                  <h4>Application Received</h4>
+                  <p>Oct 24, 2023</p>
+                </div>
+              </div>
+
+              <div class="step active-step">
+                <span>••</span>
+                <div>
+                  <h4>Interview Scheduled</h4>
+                  <p>In progress</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <span></span>
+                <div>
+                  <h4>Home Visit</h4>
+                  <p>Pending schedule</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <span></span>
+                <div>
+                  <h4>Final Approval</h4>
+                  <p>Awaiting visit</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="progress-btn">Update Progress</button>
+          </div>
+
+          <div class="sibling-card">
+            <h2>Thinking of a sibling for Oliver?</h2>
+            <p>Finn is looking for a playmate and loves other dogs.</p>
+
+            <div class="finn">
+              <img
+                src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=200"
+              />
+              <div>
+                <h3>Finn</h3>
+                <p>Golden Retriever • 2y</p>
+              </div>
+            </div>
+
+            <button>See Finn →</button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

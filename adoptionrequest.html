@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paw’s Home - Adoption Requests</title>
+    <link rel="stylesheet" href="adoptionrequest.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Paw’s Home</h2>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="#">Favorites</a>
+        <a href="#">My Pets</a>
+        <a href="#">Add Pet</a>
+      </nav>
+      <div class="icons">
+        <span>♧</span>
+        <span>♡</span>
+        <div>JD</div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Adoption Requests</h1>
+      <p class="intro">
+        Track your journey toward finding a new companion. Our sanctuary
+        curators are reviewing each application with delicate care.
+      </p>
+
+      <div class="tabs">
+        <button class="active" data-filter="all">All Requests</button>
+        <button data-filter="pending">Pending</button>
+        <button data-filter="approved">Approved</button>
+      </div>
+
+      <section class="layout">
+        <div class="requests">
+          <div class="request-card" data-status="pending">
+            <img
+              src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?w=500"
+            />
+            <div class="info">
+              <h3>Oliver</h3>
+              <p>Beagle Mix • 2 years old</p>
+              <div class="tags">
+                <span>LOVES KIDS</span>
+                <span>PLAYFUL</span>
+              </div>
+              <div class="bottom">
+                <span>▣ Submitted on Oct 24, 2023</span>
+                <a href="reqestdetail.html">View Details →</a>
+              </div>
+            </div>
+            <b class="status pending">PENDING</b>
+          </div>
+
+          <div class="request-card" data-status="approved">
+            <img
+              src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500"
+            />
+            <div class="info">
+              <h3>Luna</h3>
+              <p>Domestic Shorthair • 4 years old</p>
+              <div class="tags">
+                <span>QUIET</span>
+                <span>LOVES NAPTIME</span>
+              </div>
+              <div class="bottom">
+                <span>⊙ Ready for pickup</span>
+                <a href="#">View Details →</a>
+              </div>
+            </div>
+            <b class="status approved">APPROVED</b>
+          </div>
+        </div>
+
+        <aside>
+          <div class="stage-card">
+            <h2>Current Stage</h2>
+
+            <div class="step done">
+              <span>✓</span>
+              <div>
+                <h4>Application Submitted</h4>
+                <p>Oct 24, 2023</p>
+              </div>
+            </div>
+
+            <div class="step done">
+              <span>✓</span>
+              <div>
+                <h4>Background Check</h4>
+                <p>Oct 26, 2023</p>
+              </div>
+            </div>
+
+            <div class="step current">
+              <span></span>
+              <div>
+                <h4>Interview Scheduling</h4>
+                <p>Our team is reaching out shortly.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <span></span>
+              <div>
+                <h4>Meet & Greet</h4>
+                <p>Estimated for next week.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="suggestion">
+            <div>
+              <small>SUGGESTION</small>
+              <h2>Thinking of a sibling for Oliver?</h2>
+              <p>Finn the Fox-terrier just arrived today.</p>
+              <button>See Finn</button>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400"
+            />
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <h3>Paw’s Home</h3>
+      <div>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <p>© 2026 Paw’s Home. Every pet deserves a story.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

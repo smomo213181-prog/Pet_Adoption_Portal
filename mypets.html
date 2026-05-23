@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paws Home - My Pets</title>
+    <link rel="stylesheet" href="mypets.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Paws Home</h2>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a class="active" href="#">My Pets</a>
+        <a href="addpet.html">Add Pet</a>
+        <a href="#">Requests</a>
+        <a href="#">Profile</a>
+      </nav>
+
+      <div class="header-right">
+        <button>LOG OUT</button>
+        <span>🔔</span>
+        <div class="avatar">👨‍💼</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-title">
+        <h1>My Pets</h1>
+        <p>Manage all pets you’ve posted for adoption</p>
+      </section>
+
+      <section class="stats">
+        <div>
+          <p>TOTAL PETS POSTED</p>
+          <h2>12</h2>
+        </div>
+        <div>
+          <p>PENDING REQUESTS</p>
+          <h2 class="gold">04</h2>
+        </div>
+        <div>
+          <p>APPROVED / ADOPTED</p>
+          <h2 class="black">08</h2>
+        </div>
+      </section>
+
+      <section class="filter-box">
+        <div class="filter-left">
+          <div>
+            <label>TYPE</label>
+            <select id="typeFilter">
+              <option value="all">All Types</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+            </select>
+          </div>
+
+          <div>
+            <label>BREED</label>
+            <select>
+              <option>All Breeds</option>
+              <option>Golden Retriever</option>
+              <option>Domestic Shorthair</option>
+              <option>Beagle</option>
+            </select>
+          </div>
+
+          <div>
+            <label>STATUS</label>
+            <select id="statusFilter">
+              <option value="all">All Status</option>
+              <option value="available">Available</option>
+              <option value="pending">Pending</option>
+              <option value="adopted">Adopted</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sort">
+          <span>SORT BY:</span>
+          <select>
+            <option>Latest First</option>
+            <option>Oldest First</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="pet-grid">
+        <div class="pet-card" data-type="dog" data-status="available">
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500"
+            />
+            <span class="badge available">AVAILABLE</span>
+          </div>
+
+          <h3>Oliver</h3>
+          <p>Golden Retriever • 2 Years • Male</p>
+
+          <div class="tags">
+            <span>VACCINATED</span>
+            <span>MICROCHIPPED</span>
+          </div>
+
+          <div class="actions">
+            <button class="main-btn">View Requests</button>
+            <button class="icon-btn">✎</button>
+            <button class="delete-btn">🗑</button>
+          </div>
+        </div>
+
+        <div class="pet-card" data-type="cat" data-status="pending">
+          <div class="image-box wide">
+            <img
+              src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600"
+            />
+            <span class="badge pending">PENDING</span>
+          </div>
+
+          <h3>Luna</h3>
+          <p>Domestic Shorthair • 1 Year • Female</p>
+
+          <div class="tags">
+            <span>PLAYFUL</span>
+            <span>INDOOR ONLY</span>
+          </div>
+
+          <div class="actions">
+            <button class="main-btn">
+              <a href="viewrequest.html">View Requests (3)</a>
+            </button>
+            <button class="icon-btn">✎</button>
+            <button class="delete-btn">🗑</button>
+          </div>
+        </div>
+
+        <div class="pet-card adopted" data-type="dog" data-status="adopted">
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?w=500"
+            />
+            <span class="badge adopted-badge">ADOPTED</span>
+          </div>
+
+          <h3>Cooper</h3>
+          <p>Beagle • 4 Months • Male</p>
+
+          <div class="tags">
+            <span>HIGH ENERGY</span>
+          </div>
+
+          <div class="actions">
+            <button class="locked-btn">Profile Locked</button>
+            <button class="icon-btn">👁</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <h3>Paws Home</h3>
+        <p>© 2024 PAWS HOME. Every pet is a masterpiece.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Terms & Privacy</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
