@@ -1,0 +1,285 @@
+/* style.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f7f9f8;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Left Side */
+.left {
+  width: 50%;
+  min-height: 100vh;
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1552053831-71594a27632d?w=1200")
+    center/cover no-repeat;
+  color: #fff;
+  padding: 55px 60px;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 70, 65, 0.42);
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.left-content {
+  position: relative;
+  z-index: 2;
+  margin-top: 220px;
+  max-width: 620px;
+}
+
+.left-content h1 {
+  font-size: 52px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.left-content p {
+  margin-top: 25px;
+  font-size: 21px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.adopt-card {
+  position: absolute;
+  z-index: 2;
+  left: 60px;
+  bottom: 45px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  color: #222;
+  padding: 20px 28px;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.adopt-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.adopt-card h4 {
+  font-size: 16px;
+}
+
+.adopt-card p {
+  font-size: 13px;
+  color: #555;
+}
+
+.right {
+  width: 50%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 485px;
+}
+
+.form-box h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #1d1d1d;
+}
+
+.subtitle {
+  margin-top: 5px;
+  color: #555;
+  font-size: 17px;
+}
+
+.social-buttons {
+  margin-top: 45px;
+  display: flex;
+  gap: 22px;
+}
+
+.social-buttons button {
+  flex: 1;
+  height: 54px;
+  border: 1px solid #e5e5e5;
+  border-radius: 28px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.google {
+  color: #4285f4;
+  margin-right: 12px;
+  font-weight: 700;
+}
+
+.facebook {
+  color: #1877f2;
+  margin-right: 12px;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 26px 0;
+  color: #555;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e5e5;
+}
+
+.divider span {
+  padding: 0 18px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #222;
+}
+
+input {
+  width: 100%;
+  height: 62px;
+  border: none;
+  outline: none;
+  border-radius: 28px;
+  padding: 0 25px;
+  background: #f0f2f1;
+  font-size: 16px;
+  margin-bottom: 22px;
+  color: #333;
+}
+
+.password-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-row a {
+  color: #007c7a;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signin-btn {
+  width: 100%;
+  height: 62px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #007174, #00959a);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 5px;
+  box-shadow: 0 14px 25px rgba(0, 130, 130, 0.25);
+}
+
+.signup {
+  text-align: center;
+  margin-top: 42px;
+  color: #555;
+}
+
+.signup a {
+  color: #007c7a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.terms {
+  margin-top: 45px;
+  padding-top: 35px;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.chat-btn {
+  position: absolute;
+  right: 40px;
+  bottom: 35px;
+  width: 66px;
+  height: 66px;
+  border: none;
+  border-radius: 50%;
+  background: #b47800;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .left {
+    min-height: 600px;
+  }
+
+  .left-content {
+    margin-top: 150px;
+  }
+
+  .left-content h1 {
+    font-size: 38px;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+}
