@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f7f9f8;
+  color: #15191c;
+}
+
+
+.page {
+  min-height: 100vh;
+  padding: 28px 36px;
+  filter: blur(6px);
+}
+
+header {
+  height: 65px;
+  background: white;
+  border-radius: 4px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h2 {
+  color: #006b68;
+}
+
+nav {
+  display: flex;
+  gap: 35px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+header button {
+  border: none;
+  background: #007b7c;
+  color: white;
+  padding: 14px 36px;
+  border-radius: 28px;
+  font-weight: 700;
+}
+
+main {
+  margin-top: 80px;
+  max-width: 700px;
+}
+
+main h1 {
+  font-size: 64px;
+}
+
+main p {
+  margin-top: 20px;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.cards {
+  margin-top: 160px;
+  display: flex;
+  gap: 22px;
+}
+
+.cards div {
+  width: 250px;
+  height: 180px;
+  background: white;
+  border-radius: 24px;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  width: 480px;
+  background: white;
+  border-radius: 36px;
+  padding: 42px;
+  text-align: center;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.18);
+}
+
+.success-icon {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: #e7f1f1;
+  color: #007b7c;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 35px;
+  font-size: 46px;
+  font-weight: 800;
+}
+
+.success-icon::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: #007b7c;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.modal-box h1 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.modal-box p {
+  color: #333;
+  font-size: 17px;
+  line-height: 1.65;
+  margin-bottom: 35px;
+}
+
+.primary-btn,
+.secondary-btn {
+  width: 100%;
+  height: 62px;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-btn {
+  border: none;
+  color: white;
+  background: linear-gradient(to right, #007b7c, #008f91);
+  box-shadow: 0 12px 25px rgba(0, 123, 124, 0.28);
+}
+
+.secondary-btn {
+  margin-top: 16px;
+  border: 1px solid #e5e5e5;
+  background: white;
+  color: #006b68;
+}
+
+.modal-footer {
+  border-top: 1px solid #eeeeee;
+  margin-top: 34px;
+  padding-top: 30px;
+  color: #7c5100;
+  font-size: 15px;
+}
+
+
+@media (max-width: 600px) {
+  .modal-box {
+    width: 90%;
+    padding: 32px 22px;
+  }
+
+  .modal-box h1 {
+    font-size: 28px;
+  }
+
+  .modal-box p {
+    font-size: 15px;
+  }
+
+  nav {
+    display: none;
+  }
+}
