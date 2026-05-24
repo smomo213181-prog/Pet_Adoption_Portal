@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paws Home - Favorites</title>
+    <link rel="stylesheet" href="favourite.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Paws Home</h2>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a class="active" href="">Favorites</a>
+        <a href="mypets.html">My Pets</a>
+        <a href="addpet.html">Add Pet</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search">
+          🔍
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search sanctuary..."
+          />
+        </div>
+        <span>🔔</span>
+        <span>♥</span>
+        <button>Profile</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-title">
+        <h1>Favorites</h1>
+        <p>
+          A curated collection of souls waiting for a home. Take your time—every
+          connection is a story in the making.
+        </p>
+      </section>
+
+      <section class="favorites-grid">
+        <div class="pet-card" data-name="Oliver">
+          <button class="heart">♥</button>
+          <img
+            src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500"
+            alt="Oliver"
+          />
+          <div class="card-body">
+            <div class="title-row">
+              <h3>Oliver</h3>
+              <span>GENTLE SOUL</span>
+            </div>
+            <p class="meta">Domestic Shorthair • 2 years</p>
+            <p class="desc">
+              A quiet observer who loves morning sunbeams and the softest head
+              scratches.
+            </p>
+
+            <div class="actions">
+              <button class="request-btn">Send Request</button>
+              <button class="delete-btn">🗑</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pet-card" data-name="Luna">
+          <button class="heart">♥</button>
+          <img
+            src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=500"
+            alt="Luna"
+          />
+          <div class="card-body">
+            <div class="title-row">
+              <h3>Luna</h3>
+              <span class="orange">PLAYFUL</span>
+            </div>
+            <p class="meta">Golden Retriever • 5 months</p>
+            <p class="desc">
+              Luna is a bundle of joy who believes every stranger is just a
+              friend she hasn't met yet.
+            </p>
+
+            <div class="actions">
+              <button class="request-btn">Send Request</button>
+              <button class="delete-btn">🗑</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pet-card" data-name="Milo">
+          <button class="heart big">♥</button>
+          <img
+            class="wide-img"
+            src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?w=600"
+            alt="Milo"
+          />
+          <div class="card-body">
+            <div class="title-row">
+              <h3>Milo</h3>
+              <span class="teal">ELEGANT</span>
+            </div>
+            <p class="meta">Russian Blue • 3 years</p>
+            <p class="desc">
+              A sophisticated companion who enjoys classical music and watching
+              birds from the terrace.
+            </p>
+
+            <div class="actions">
+              <button class="request-btn">Send Request</button>
+              <button class="delete-btn">🗑</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="recommend">
+        <div class="recommend-text">
+          <small>RECOMMENDATION</small>
+          <h2>Still looking for that perfect match?</h2>
+          <p>
+            Our sanctuary coordinators can help you find a pet that fits your
+            lifestyle perfectly. Sometimes the best connections are the ones we
+            didn't expect.
+          </p>
+          <button>Talk to a Coordinator</button>
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=900"
+          alt="Dog"
+        />
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <h3>Paws Home</h3>
+        <p>© 2026 PAWS HOME. Every pet deserves a story.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+
+      <div class="footer-icons">
+        <button>☘</button>
+        <button>✉</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

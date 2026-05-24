@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paws Home - Add Pet</title>
+    <link rel="stylesheet" href="addpet.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Paws Home</h2>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="favourite.html">Favorites</a>
+        <a href="mypets.html">My Pets</a>
+        <a class="active" href="#">Add Pet</a>
+      </nav>
+
+      <div class="header-actions">
+        <span>🔔</span>
+        <span>♡</span>
+        <button>Profile</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-title">
+        <h1>Draft a New <span>Soulmate Story</span></h1>
+        <p>
+          Create a premium editorial entry for a pet. Our curated approach helps
+          prospective owners connect deeply with the personality behind the
+          profile.
+        </p>
+      </section>
+
+      <section class="content-layout">
+        <aside>
+          <div class="guide-card">
+            <h3>Editorial Guidelines</h3>
+            <p>
+              Focus on the animal’s eyes in photos. Use descriptive, warm
+              language in the bio to evoke emotional connection.
+            </p>
+
+            <div class="steps">
+              <div class="step active"><span>01</span> Visual Identity</div>
+              <div class="step"><span>02</span> Vital Stats</div>
+              <div class="step"><span>03</span> Medical & Care</div>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=500"
+            />
+            <p>“Every pet deserves a story told with dignity.”</p>
+          </div>
+        </aside>
+
+        <section class="form-area">
+          <div class="card">
+            <h2>Visual Identity</h2>
+            <p>Upload high-resolution photography</p>
+
+            <label class="upload-box" for="mainImage">
+              <input type="file" id="mainImage" accept="image/*" hidden />
+              <div id="uploadPreview">
+                <div class="camera">📷</div>
+                <h4>Drag & Drop Featured Image</h4>
+                <small>Preferred size: 2400 x 1600 px</small>
+              </div>
+            </label>
+
+            <div class="thumb-row">
+              <label class="thumb-box">
+                <input type="file" accept="image/*" hidden />
+                <span>＋</span>
+              </label>
+              <label class="thumb-box"
+                ><input type="file" accept="image/*" hidden
+              /></label>
+              <label class="thumb-box"
+                ><input type="file" accept="image/*" hidden
+              /></label>
+              <label class="thumb-box"
+                ><input type="file" accept="image/*" hidden
+              /></label>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Vital Statistics</h2>
+            <p>Core demographic information</p>
+
+            <div class="form-grid">
+              <div>
+                <label>Pet Name</label>
+                <input type="text" placeholder="e.g. Luna" />
+              </div>
+
+              <div>
+                <label>Breed / Mix</label>
+                <input type="text" placeholder="e.g. Border Collie Mix" />
+              </div>
+
+              <div>
+                <label>Age Estimate</label>
+                <select>
+                  <option>Puppy / Kitten</option>
+                  <option>Young</option>
+                  <option>Adult</option>
+                  <option>Senior</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Gender</label>
+                <div class="gender">
+                  <button type="button">Male</button>
+                  <button type="button" class="selected">Female</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="medical">
+              <label>Medical & Vaccination Status</label>
+              <div class="chips">
+                <button class="active-chip">● Fully Vaccinated</button>
+                <button>○ Neutered / Spayed</button>
+                <button>○ Microchipped</button>
+                <button>○ Special Needs</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>The Story</h2>
+            <p>Craft a narrative that captures the pet's unique soul</p>
+
+            <label>Description & Personality</label>
+            <textarea
+              placeholder="Describe their temperament, favorite toys, and the kind of home they would flourish in..."
+            ></textarea>
+
+            <div class="story-footer">
+              <small>Recommended: 200-500 words</small>
+              <button type="button">✦ AI Assistive Writing</button>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button class="draft-btn">Save Draft</button>
+            <button class="publish-btn">Publish</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <h3>Paws Home</h3>
+        <p>© 2024 PAWS HOME. Every pet is a masterpiece.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="footer-icons">
+        <button>↗</button>
+        <button>✉</button>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

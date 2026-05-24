@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paw's Home - Pets</title>
+    <link rel="stylesheet" href="pawhome.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Paw’s Home</h2>
+
+      <nav>
+        <a class="active" href="home.html">Home</a>
+        <a href="mypets.html">My Pets</a>
+        <a href="addpet.html">Add Pet</a>
+      </nav>
+
+      <div class="header-right">
+        <button>Log Out</button>
+        <div class="avatar">👩🏻</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Find Your Perfect <span>Companion</span></h1>
+        <p>
+          Every pet has a story waiting to be written. Search and filter through
+          our curated selection of pets looking for their forever sanctuary.
+        </p>
+
+        <div class="search-box">
+          <span>⌕</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by breed, name, or traits..."
+          />
+          <button onclick="searchPets()">Search</button>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=900"
+          alt="Cat"
+        />
+      </div>
+    </section>
+
+    <section class="filter-bar">
+      <div class="filters">
+        <button>🐾 Pet Type</button>
+        <button>✺ Breed</button>
+        <button>▣ Age</button>
+        <button>⌖ Location</button>
+        <button class="active-filter">☷ All Filters</button>
+      </div>
+
+      <div class="sort">
+        <span>Sort by:</span>
+        <select>
+          <option>Newest First</option>
+          <option>Oldest First</option>
+          <option>Name A-Z</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="pet-section">
+      <div class="pet-grid">
+        <div
+          class="pet-card"
+          data-name="Luna"
+          data-type="Cat"
+          data-breed="Golden Retriever Mix"
+        >
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600"
+            />
+            <span class="badge teal">Vaccinated</span>
+          </div>
+          <div class="pet-content">
+            <div class="title-row">
+              <h3>Luna</h3>
+              <span>Cat</span>
+            </div>
+            <p>⌖ San Francisco, CA • 2 Years Old</p>
+            <div class="bottom-row">
+              <small>Golden Retriever Mix</small>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pet-card"
+          data-name="Oliver"
+          data-type="Cat"
+          data-breed="Maine Coon"
+        >
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=600"
+            />
+            <button class="heart">♡</button>
+          </div>
+          <div class="pet-content">
+            <div class="title-row">
+              <h3>Oliver</h3>
+              <span class="orange">Cat</span>
+            </div>
+            <p>⌖ Seattle, WA • 4 Years Old</p>
+            <div class="bottom-row">
+              <small>Maine Coon</small>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pet-card"
+          data-name="Mochi"
+          data-type="Dog"
+          data-breed="Holland Lop"
+        >
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600"
+            />
+          </div>
+          <div class="pet-content">
+            <div class="title-row">
+              <h3>Mochi</h3>
+              <span class="orange">Dog</span>
+            </div>
+            <p>⌖ Portland, OR • 1 Year Old</p>
+            <div class="bottom-row">
+              <small>Holland Lop</small>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pet-card"
+          data-name="Cooper"
+          data-type="Dog"
+          data-breed="Border Collie"
+        >
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600"
+            />
+          </div>
+          <div class="pet-content">
+            <div class="title-row">
+              <h3>Cooper</h3>
+              <span>Dog</span>
+            </div>
+            <p>⌖ Austin, TX • 3 Years Old</p>
+            <div class="bottom-row">
+              <small>Border Collie</small>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pet-card"
+          data-name="Jasper"
+          data-type="Cat"
+          data-breed="Short Hair Mix"
+        >
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600"
+            />
+          </div>
+          <div class="pet-content">
+            <div class="title-row">
+              <h3>Jasper</h3>
+              <span class="orange">Cat</span>
+            </div>
+            <p>⌖ Denver, CO • 6 Months Old</p>
+            <div class="bottom-row">
+              <small>Short Hair Mix</small>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pet-card"
+          data-name="Bella"
+          data-type="Dog"
+          data-breed="French Bulldog"
+        >
+          <div class="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1612536057832-2ff7ead58194?w=600"
+            />
+            <button class="heart">♡</button>
+            <span class="badge gold">New Listing</span>
+          </div>
+          <div class="pet-content">
+            <div class="title-row">
+              <h3>Bella</h3>
+              <span>Dog</span>
+            </div>
+            <p>⌖ Los Angeles, CA • 5 Years Old</p>
+            <div class="bottom-row">
+              <small>French Bulldog</small>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="load-btn">Load More Stories</button>
+    </section>
+
+    <footer>
+      <div>
+        <h3>Paw’s Home</h3>
+        <p>© 2026 Paw’s Home. Every pet deserves a story.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Support</a>
+        <a href="#">About Us</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
