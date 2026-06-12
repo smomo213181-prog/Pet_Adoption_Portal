@@ -26,6 +26,7 @@ try {
 
     $pdo->exec("CREATE TABLE IF NOT EXISTS pets (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        user_id INT UNSIGNED NULL,
         name VARCHAR(255) NOT NULL,
         type ENUM('dog', 'cat') NOT NULL,
         breed VARCHAR(255),
@@ -35,6 +36,7 @@ try {
         description TEXT,
         image VARCHAR(255),
         created_at DATETIME NOT NULL,
+        INDEX idx_user_id (user_id),
         INDEX idx_type (type),
         INDEX idx_age_category (age_category)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
@@ -48,6 +50,7 @@ try {
 
     $existingPetColumns = $pdo->query("SHOW COLUMNS FROM pets")->fetchAll(PDO::FETCH_COLUMN);
     $requiredPetColumns = [
+        'user_id' => 'user_id INT UNSIGNED NULL AFTER id',
         'type' => "type ENUM('dog','cat') NOT NULL AFTER name",
         'age_category' => "age_category ENUM('puppy','adult','senior') NOT NULL AFTER breed",
         'gender' => "gender ENUM('male','female') NOT NULL AFTER age_category",
@@ -74,6 +77,7 @@ try {
     $missingPetColumns = [];
     $existingPetColumns = $pdo->query("SHOW COLUMNS FROM pets")->fetchAll(PDO::FETCH_COLUMN);
     $requiredPetColumns = [
+        'user_id' => 'user_id INT UNSIGNED NULL AFTER id',
         'type' => "type ENUM('dog','cat') NOT NULL AFTER name",
         'age_category' => "age_category ENUM('puppy','adult','senior') NOT NULL AFTER breed",
         'gender' => "gender ENUM('male','female') NOT NULL AFTER age_category",

@@ -176,7 +176,7 @@ $success = isset($_GET['success']) ? $_GET['success'] : '';
         <?php echo htmlspecialchars($error); ?>
     </div>
     <?php endif; ?>
-    <form action="backend/add_pet.php" method="post" class="space-y-5">
+    <form action="backend/add_pet.php" method="post" enctype="multipart/form-data" class="space-y-5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <label class="block">
                 <span class="font-semibold text-slate-700">Pet Name</span>
@@ -224,10 +224,17 @@ $success = isset($_GET['success']) ? $_GET['success'] : '';
             <span class="font-semibold text-slate-700">Description</span>
             <textarea name="description" rows="4" class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-teal-500"></textarea>
         </label>
-        <label class="block">
-            <span class="font-semibold text-slate-700">Image URL</span>
-            <input type="url" name="image" placeholder="images/pet-card-3.jpg" class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-teal-500"/>
-        </label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <label class="block">
+                <span class="font-semibold text-slate-700">Image File</span>
+                <input type="file" name="image_file" accept="image/*" class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-teal-500"/>
+            </label>
+            <label class="block">
+                <span class="font-semibold text-slate-700">Image URL</span>
+                <input type="url" name="image" placeholder="images/pet-card-3.jpg" class="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-teal-500"/>
+                <p class="text-sm text-slate-500 mt-2">Upload an image file or use a local image URL.</p>
+            </label>
+        </div>
         <button type="submit" class="w-full rounded-2xl bg-teal-700 px-6 py-4 text-white font-bold hover:bg-teal-800">Add Pet</button>
     </form>
 </main>

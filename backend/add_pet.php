@@ -20,6 +20,7 @@ $gender = trim($_POST['gender'] ?? '');
 $location = trim($_POST['location'] ?? '');
 $description = trim($_POST['description'] ?? '');
 $image = trim($_POST['image'] ?? '');
+$imageFile = $_FILES['image_file'] ?? null;
 
 $errors = [];
 
@@ -45,13 +46,53 @@ if (!empty($errors)) {
     exit;
 }
 
+$uploadPath = __DIR__ . '/../images/uploads';
+if (!is_dir($uploadPath)) {
+    mkdir($uploadPath, 0755, true);
+}
+
+if ($imageFile && isset($imageFile['error']) && $imageFile['error'] === UPLOAD_ERR_OK) {
+    $allowedTypes = [
+        'image/jpeg' => 'jpg',
+        'image/png' => 'png',
+        'image/gif' => 'gif',
+        'image/webp' => 'webp',
+    ];
+    $fileInfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mimeType = finfo_file($fileInfo, $imageFile['tmp_name']);
+    finfo_close($fileInfo);
+
+    if (!array_key_exists($mimeType, $allowedTypes)) {
+        $errors[] = 'Uploaded image must be JPG, PNG, GIF, or WEBP.';
+    } else {
+        $extension = $allowedTypes[$mimeType];
+        $filename = 'pet-' . uniqid() . '.' . $extension;
+        $destination = $uploadPath . '/' . $filename;
+
+        if (!move_uploaded_file($imageFile['tmp_name'], $destination)) {
+            $errors[] = 'Failed to save uploaded image. Please try again.';
+        } else {
+            $image = 'images/uploads/' . $filename;
+        }
+    }
+} elseif ($image !== '') {
+    $image = trim($image);
+}
+
 if ($image === '') {
     $image = 'images/pet-card-1.jpg';
 }
 
-$stmt = $pdo->prepare('INSERT INTO pets (name, type, breed, age_category, gender, location, description, image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())');
-$stmt->execute([$name, $type, $breed, $age_category, $gender, $location, $description, $image]);
+if (!empty($errors)) {
+    $query = http_build_query(['error' => implode(' ', $errors)]);
+    header('Location: ../add_pet.php?' . $query);
+    exit;
+}
 
-header('Location: ../index.php');
+$user_id = $_SESSION['user_id'];
+$stmt = $pdo->prepare('INSERT INTO pets (user_id, name, type, breed, age_category, gender, location, description, image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())');
+$stmt->execute([$user_id, $name, $type, $breed, $age_category, $gender, $location, $description, $image]);
+
+header('Location: ../my_pets.php?success=' . urlencode('Pet added successfully.'));
 exit;
 ?>
