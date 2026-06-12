@@ -356,7 +356,7 @@ $user_name = $_SESSION['user_name'];
 <a class="text-slate-500 dark:text-slate-500 hover:text-primary underline underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
 </div>
 <div class="text-right md:text-right">
-<p class="text-slate-500 dark:text-slate-500 text-xs font-body">© 2024 Paw's Home. Every pet deserves a story.</p>
+<p class="text-slate-500 dark:text-slate-500 text-xs font-body">© 2026 Paw's Home. Every pet deserves a story.</p>
 </div>
 </div>
 </footer>

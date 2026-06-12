@@ -156,7 +156,7 @@ $favorites = $stmt->fetchAll();
 <main class="pt-24 pb-20 px-8 max-w-7xl mx-auto">
 <!-- Hero Heading -->
 <section class="mb-12">
-<h1 class="text-5xl font-bold tracking-tight text-on-surface mb-4">Your Sanctuary Favorites</h1>
+<h1 class="text-5xl font-bold tracking-tight text-on-surface mb-4">Paw's Home Favorites</h1>
 <p class="text-on-surface-variant text-lg max-w-2xl font-body">A curated collection of souls waiting for a home. Take your time—every connection is a story in the making.</p>
 </section>
 <!-- Favorites Grid -->
@@ -218,23 +218,19 @@ $favorites = $stmt->fetchAll();
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-t border-slate-100 dark:border-slate-800 pt-12">
-<div>
-<span class="text-xl font-bold text-teal-900 dark:text-teal-100">The Editorial Sanctuary</span>
-<p class="text-sm font-body text-slate-500 dark:text-slate-500 mt-2">Every pet deserves a story.</p>
-</div>
-<div class="flex justify-center gap-8">
-<a class="text-slate-500 dark:text-slate-500 font-medium hover:text-teal-500 underline underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">About</a>
-<a class="text-slate-500 dark:text-slate-500 font-medium hover:text-teal-500 underline underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
-<a class="text-slate-500 dark:text-slate-500 font-medium hover:text-teal-500 underline underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="text-slate-500 dark:text-slate-500 font-medium hover:text-teal-500 underline underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-</div>
-<div class="md:text-right">
-<p class="text-sm font-body text-slate-500 dark:text-slate-500">© 2024 The Editorial Sanctuary.</p>
-<p class="text-sm font-body text-slate-500 dark:text-slate-500">© 2024 Paw's Home.</p>
-</div>
-</div>
+<footer class="bg-white border-t border-gray-200 w-full py-8 px-6 mt-auto font-['Be_Vietnam_Pro'] text-sm">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
+        <div class="flex flex-col gap-1">
+            <span class="font-['Plus_Jakarta_Sans'] font-bold text-gray-900 text-base">Paw's Home</span>
+            <p class="text-gray-500 text-xs">© 2026 Paw's Home. Every pet deserves a story.</p>
+        </div>
+        <div class="flex gap-8 text-xs">
+            <a class="text-gray-600 hover:text-teal-700 underline transition-all" href="#">Privacy Policy</a>
+            <a class="text-gray-600 hover:text-teal-700 underline transition-all" href="#">Terms of Service</a>
+            <a class="text-gray-600 hover:text-teal-700 underline transition-all" href="#">Contact Support</a>
+            <a class="text-gray-600 hover:text-teal-700 underline transition-all" href="#">About Us</a>
+        </div>
+    </div>
 </footer>
 <!-- Mobile Navigation Shell -->
 <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-slate-100 flex justify-around py-3 px-4 z-50">
