@@ -27,7 +27,10 @@ $query = 'SELECT p.*,
           LEFT JOIN favorites f ON p.id = f.pet_id AND f.user_id = ?';
 $params = [$user_id];
 
-$conditions = [];
+$conditions = [
+    'p.user_id != ?'
+];
+$params[] = $user_id;
 
 if ($search) {
     $conditions[] = "(p.name LIKE ? OR p.breed LIKE ? OR p.location LIKE ?)";
@@ -368,7 +371,7 @@ $user_logged_in = true;
     <div class="flex flex-col md:flex-row justify-between items-center gap-6 max-w-7xl mx-auto">
         <div class="flex flex-col gap-1">
             <span class="font-['Plus_Jakarta_Sans'] font-bold text-gray-900 text-base">Paw's Home</span>
-            <p class="text-gray-500 text-xs">© 2024 Paw's Home. Every pet deserves a story.</p>
+            <p class="text-gray-500 text-xs">© 2026 Paw's Home. Every pet deserves a story.</p>
         </div>
         <div class="flex gap-8 text-xs">
             <a class="text-gray-600 hover:text-teal-700 underline transition-all" href="#">Privacy Policy</a>
